@@ -29,95 +29,64 @@ RegisterNumber: 212224230209
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error, mean_squared_error
-df=pd.read_csv('student_scores.csv')
+from sklearn.metrics import mean_absolute_error , mean_squared_error
+df = pd.read_csv('student_scores.csv')
 df.head()
 df.tail()
-X = df.iloc[:,:-1].values
-X
-Y=df.iloc[:,1].values
-Y
+x = df.iloc[:,:-1].values
+x
+y = df.iloc[:,1].values
+y
 from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=1/3,random_state=0)
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=1/3,random_state=0)
 from sklearn.linear_model import LinearRegression
-regressor=LinearRegression()
-regressor.fit(X_train,Y_train)
-Y_pred=regressor.predict(X_test)
-Y_pred
-Y_test
-mse=mean_squared_error(Y_test,Y_pred)
+regressor = LinearRegression()
+regressor.fit(x_train,y_train)
+y_pred = regressor.predict(x_test)
+y_pred
+y_test
+mse = mean_squared_error(y_test,y_pred)
 print('MSE = ',mse)
-mae=mean_absolute_error(Y_test,Y_pred)
+mae = mean_absolute_error(y_test,y_pred)
 print('MAE = ',mae)
-rmse=np.sqrt(mse)
+rmse = np.sqrt(mse)
 print("RMSE = ",rmse)
-plt.scatter(X_train,Y_train,color="orange")
-plt.plot(X_train,regressor.predict(X_train),color="red")
-plt.title("Hours vs Scores (Training Set)")
+plt.scatter(x_train,y_train,color="black")
+plt.plot(x_train,regressor.predict(x_train),color="red")
+plt.title("Hours vs Scores(Training Set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
 plt.show()
+print("Name: Priyadharshini G")
+print("Reg no : 212224230209")
+plt.scatter(x_test,y_test,color="blue")
+plt.plot(x_test,y_pred,color="black")
+plt.title("Hours vs Scores(Test Set)")
+plt.xlabel("Hours")
+plt.ylabel("Scores")
+plt.show()
+print("Name: Priyadharshini G")
+print("Reg no : 212224230209")
 ```
 
 ## Output:
-![simple linear regression model for predicting the marks scored](sam.png)
-```
-Hours	Scores
-0	2.5	21
-1	5.1	47
-2	3.2	27
-3	8.5	75
-4	3.5	30
 
-	Hours	Scores
-20	2.7	30
-21	4.8	54
-22	3.8	35
-23	6.9	76
-24	7.8	86
-
-array([[2.5],
-       [5.1],
-       [3.2],
-       [8.5],
-       [3.5],
-       [1.5],
-       [9.2],
-       [5.5],
-       [8.3],
-       [2.7],
-       [7.7],
-       [5.9],
-       [4.5],
-       [3.3],
-       [1.1],
-       [8.9],
-       [2.5],
-       [1.9],
-       [6.1],
-       [7.4],
-       [2.7],
-       [4.8],
-       [3.8],
-       [6.9],
-       [7.8]])
-
-array([21, 47, 27, 75, 30, 20, 88, 60, 81, 25, 85, 62, 41, 42, 17, 95, 30,
-       24, 67, 69, 30, 54, 35, 76, 86], dtype=int64)
-
-array([17.04289179, 33.51695377, 74.21757747, 26.73351648, 59.68164043,
-       39.33132858, 20.91914167, 78.09382734, 69.37226512])
-
-array([20, 27, 69, 30, 62, 35, 24, 86, 76], dtype=int64)
-
-MSE =  25.463280738222547
-MAE =  4.691397441397438
-RMSE =  5.046115410711743
-```
-![Screenshot 2025-02-27 193458](https://github.com/user-attachments/assets/c45394a8-0206-4993-9072-b65ba788d9e1)
+## head()
+![image](https://github.com/user-attachments/assets/169ba70b-a69f-46dd-9c94-b45711dff4d2)
+## tail()
+![image](https://github.com/user-attachments/assets/407d0490-d456-41ad-a251-b581719afd0b)
+## Array
+![image](https://github.com/user-attachments/assets/e81a3b1e-9ecf-480d-b533-f28c5ca9e724)
+![image](https://github.com/user-attachments/assets/c13a7273-2633-4f32-8c50-ef590514d305)
+## Errors
+![image](https://github.com/user-attachments/assets/17a29cc1-841d-4883-bb17-3c14cc5b03a3)
+## Hours vs Scores training set
+![image](https://github.com/user-attachments/assets/27230549-5ee0-48c0-a2c0-1e61b764832a)
+## Hours vs Scores test set
+![image](https://github.com/user-attachments/assets/bb81cbea-81ca-46dd-b87e-c92869a7d827)
 
 
-![Screenshot 2025-02-27 193546](https://github.com/user-attachments/assets/540f5801-069c-4ba7-8f69-6f275f6687a8)
+
 
 
 ## Result:
